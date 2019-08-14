@@ -28,6 +28,10 @@
 */
 
 // Code Here 
+var first = (array, callback) => {
+  return callback(array[0]);
+}
+
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -48,6 +52,9 @@ first(names, function(firstName){
 */
 
 //Code Here
+var last = (arr, cb) => {
+  return cb(arr[arr.length - 1]);
+}
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -66,6 +73,9 @@ last(names, function(lastName){
 */
 
 //Code Here
+var multiply = (num1, num2, callback) => {
+  return callback(num1 * num2);
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -85,6 +95,13 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
+var contains = (array, name, callback) => {
+  if(array.includes(name)){
+    return callback(true);
+  } else {
+    return callback(false);
+  }
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -106,6 +123,18 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+let uniq = (array, callback) => {
+  console.log(array);
+  for(let i = array.length - 1; i >= 0; i--){
+    if(array.indexOf(array[i]) !== array.lastIndexOf(array[i])){
+      console.log(array[i]);
+      array.splice(i, 1);
+    }
+  }
+  console.log(array);
+  callback(array);
+}
+
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -123,9 +152,14 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
+var each = (array, callback) => {
+  for(var i = 0; i < array.length; i++){
+    callback(array[i], i);
+  }  
+}
 
 // Do not edit the code below.
-each(names, function(item, indice){
+each(names, function(item, indice) {
   console.log('The item in the ' + indice + ' position is ' + item)
 });
 // Do not edit the code above.
@@ -140,6 +174,13 @@ each(names, function(item, indice){
 */
 
 // Code here
+var getUserById = (array, id, callback) => {
+  for (let i = 0; i < array.length; i++){
+    if(array[i].id === id) {
+      callback(array[i]);
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
